@@ -1,0 +1,220 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Authentication Forms </title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+     <!--GOOGLE FONTS-->
+     <link rel="preconnect" href="https://fonts.googleapis.com" />
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;400;500;600;700;800;900&family=Mukta:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+     
+     <!--PLUGIN-->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+     
+     <link rel="stylesheet" href="./style/style.css">  
+     <link rel="stylesheet" href="./style/loginStyle.css">
+    
+</head>
+<body>
+    <nav>
+        <section class="flex_content">
+            <figure class="logo fixed_flex">
+                <a href="index.html"><img src="./images/IIMLOgo.png" alt="" height="100px" width="100%"></a>
+               
+            </figure>
+        </section>
+        <section class="flex_content nav_content" id="nav_content">
+            <a href="./index.html" class="active">Home</a>
+            <a href="#gallery">Gallery</a>
+            <a href="./BookingGames.html">Booking</a>
+            <a href="#footer" class="contact_btn">Contact us</a>
+            <a href="#about">About us</a>
+        </section>
+        <section class="flex_content">
+            <a href="javascript:void(0)" class="ham"><i class="fa fa-bars"></i></a>
+        </section>
+    </nav>
+    
+    <!--SIDE_MENU-->
+    <menu id="menu" class="side_menu">
+        <a href="javascript:void(0)" class="close"><i class="fa fa-times"></i></a>
+        <strong class="fixed_flex logo"><img src="./images/IIMLOgo.png" alt="Summit"  loading="lazy" /></strong>
+        <br>
+        <ul>
+            <li class="fixed_flex"><a href="./Login.html" class="btn btn_1 chat_popup">SignUp/LogIn</a> <a href="#" class="btn btn_2 chat_popup">Admin</a> </li>
+            
+            <li><a href="./BookingGames.html">Book Your Slots</a></li>
+            <li><a href="#">Notifications</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Features</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)">Mandatory Disclosure</a>
+                <aside>
+                    <a href="#">Society registration</a>
+                    <a href="#">NOC</a>
+                </aside>
+            </li>
+            <li><a href="#">About us</a></li>
+          
+        </ul>
+    </menu>
+    
+    
+   <div class="login_body">
+    <div class="container" id="container">
+       
+                <div class="form-container sign-up-container">
+                    <form id="signUpForm">
+                        <h1>Create Account</h1>
+                        <div class="social-container">
+                            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                        <span>or use your email for registration</span>
+                        <div class="infield">
+                            <input type="text" placeholder="Name" required />
+                        </div>
+                        <div class="infield">
+                            <input type="email" placeholder="Email" id="email" required />
+                        </div>
+                        <div class="infield show-password-container">
+                            <input type="password" placeholder="Password" id="password" required />
+                            <input type="checkbox" id="togglePassword"> 
+                        </div>
+                        <button type="submit">Sign Up</button>
+                    </form>
+                </div>
+            
+        
+        <!-- OTP Modal -->
+        <div id="otpModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>OTP Verification</h2>
+                <p>Please enter the OTP sent to your email.</p>
+                <input type="text" id="otpInput" placeholder="Enter OTP">
+                <button onclick="verifyOtp()">Verify OTP</button>
+            </div>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#" id="signInForm">
+                <h1>Sign in</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your account</span>
+                <div class="infield">
+                    <input type="email" placeholder="Email" name="email" id="emailInput"/>
+                    <label></label>
+                </div>
+                <div class="infield">
+                    <input type="password" placeholder="Password"  id="passwordInput"/>
+                    <label></label>
+                </div>
+                <a href="#" class="forgot">Forgot your password?</a>
+                <button  type="submit" >Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container" id="overlayCon">
+            <div class="overlay1">
+                <div class="overlay-panel overlay-left">
+                    <img src="./images/backdrop.jpg" alt="buddha_photo" srcset="" class="login_img">
+                    <h1>Hello again!</h1>
+                    <p>To keep in touch, please login with your credentials</p>
+                    <button>Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <img src="./images/backdrop.jpg" alt="buddha_photo" srcset="" class="login_img">
+                    <h1>Hello again!</h1>
+                    <p>Enter your credentials and start account with us</p>
+                    <button id="signUpBtn">Sign Up</button>                </div>
+            </div>
+            <button id="overlayBtn">.</button>
+        </div>
+    </div>
+   </div>
+<!-- model confirmation -->
+<div id="otpModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>OTP Verification</h2>
+        <p>Please enter the OTP sent to your email.</p>
+        <input type="text" id="otpInput" placeholder="Enter OTP">
+        <button onclick="verifyOtp()">Verify OTP</button>
+    </div>
+</div>
+   <!--footer-->
+   <footer class="padding_4x" id="footer">
+    
+  <div class="footer_body flex">
+    <section class="flex_content padding_1x">
+      <figure class="logo fixed_flex">
+            <img src="./images/IIMLOgo.png" alt="">
+           
+        </figure>
+        <a href="#">
+            <i class="fa fa-map-marker"></i>
+            Indian Institute of Management Bodh Gaya
+            Uruvela, Prabandh Vihar
+            Bodh Gaya – 824234, Gaya, Bihar, India
+        </a>
+        <a href="emailto:info@schotest.com">
+            <i class="fa fa-envelope-o"></i>
+            Director Office: director_office@iimbg.ac.in
+        </a>
+        <a href="tel:9315514145">
+            <i class="fa fa-headphones"></i>
+          96722XXXXX
+        </a>
+    </section>
+    <section class="flex_content padding_1x">
+      <h3>Quick Links</h3>
+      <a href="#">Admission</a>
+      <a href="#">Prospectus</a>
+      <a href="#">Student registration</a>
+      <a href="#">Staff registration</a>
+    </section>
+    <section class="flex_content padding_1x">
+      <h3>Other Links</h3>
+      <a href="#">About us</a>
+      <a href="#">contact us</a>
+      <a href="#">Raise a ticket</a>
+      <a href="#">Terms & conditions</a>
+    </section>
+    <section class="flex_content padding_1x">
+      <h3>Newsletter</h3>
+      <p>You can trust us. we only send important notifications related to school.</p>
+      <fieldset class="fixed_flex">
+        <input type="email" name="newsletter" placeholder="Your Email Address">
+        <button class="btn btn_2">Subscribe</button>
+      </fieldset>
+    </section>
+  </div>
+  <div class="flex">
+   
+    <section class="flex-content padding_1x">
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-dribbble"></i></a>
+      <a href="#"><i class="fa fa-linkedin"></i></a>
+    </section>
+  </div>
+</footer>
+   
+
+    <script src="/Scripts/index.js" defer></script>
+   
+   
+</body>
+</html>

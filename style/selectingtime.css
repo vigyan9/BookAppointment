@@ -1,0 +1,163 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f3f4f6;
+  background-image: url("/images/newiimphoto.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.calender_body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+  padding: 20px;
+  height: 80vh;
+}
+
+.card-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  max-width: 800px; /* Adjust max-width as needed */
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5em;
+  color: #91aee9;
+ 
+  margin: 20px 0;
+  border-radius: 8px;
+}
+
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.calendar-header img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.calendar-header h2 {
+  font-size: 1.5em;
+  color: #333;
+  margin: 0;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  width: 100%;
+}
+
+.day {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #eef1f7;
+  color: #333;
+}
+
+.day.selected {
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+}
+
+.time-form-container {
+  margin-top: 20px;
+  width: 100%; /* Occupy full width */
+}
+
+.time-slots {
+  margin-top: 20px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Occupy full width */
+}
+
+.time-slots h3 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 10px;
+  position: sticky;
+  left: 0; 
+  background-color: white;
+  z-index: 1;
+}
+
+.time-slot {
+  display: inline-block;
+  padding: 10px;
+  margin: 0 10px 10px 10px; /* Add margin on left and right, and bottom for spacing between rows */
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.time-slot.available {
+  background-color: #4caf50;
+  color: white;
+}
+
+.time-slot.unavailable {
+  background-color: #f44336;
+  color: white;
+  cursor: not-allowed;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%; /* Occupy full width */
+  margin-top: 20px;
+}
+
+.form-container input {
+  width: 100%; /* Occupy full width */
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+.form-container button {
+  padding: 10px;
+  font-size: 1em;
+  color: white;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-container button:disabled {
+  background-color: #ccc;
+}
+

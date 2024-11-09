@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Slot Booking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!--GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;400;500;600;700;800;900&family=Mukta:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!--PLUGIN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/profile.css">
+    <link rel="stylesheet" href="/style/selectingtime.css">
+</head>
+<body>
+  <nav>
+    <section class="flex_content">
+        <figure class="logo fixed_flex">
+            <a href="index.html"><img src="/images/IIMLOgo.png" alt="" height="100px" width="100%"></a>
+           
+        </figure>
+    </section>
+    <section class="flex_content nav_content" id="nav_content">
+        <a href="/index.html" >Home</a>
+        <a href="#Gallery">Gallery</a>
+        <a href="/BookingGames.html" class="active">Booking</a>
+        <a href="#footer" class="contact_btn">Contact us</a>
+        <a href="#about">About us</a>
+    </section>
+    <section class="flex_content">
+        <a href="javascript:void(0)" class="ham"><i class="fa fa-bars"></i></a>
+    </section>
+</nav>
+
+<!--SIDE_MENU-->
+<menu id="menu" class="side_menu">
+    <a href="javascript:void(0)" class="close"><i class="fa fa-times"></i></a>
+    <strong class="fixed_flex logo"><img src="./images/IIMLOgo.png" alt="Summit"  loading="lazy" /></strong>
+    <br>
+    <ul>
+        <li class="fixed_flex"><a href="./Login.html" class="btn btn_1 chat_popup">SignUp/LogIn</a> <a href="#" class="btn btn_2 chat_popup">Admin</a> </li>
+        
+        <li><a href="./BookingGames.html">Book Your Slots</a></li>
+        <li><a href="#">Notifications</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Features</a></li>
+        <li class="dropdown">
+            <a href="javascript:void(0)">Mandatory Disclosure</a>
+            <aside>
+                <a href="#">Society registration</a>
+                <a href="#">NOC</a>
+            </aside>
+        </li>
+        <li><a href="#">About us</a></li>
+      
+    </ul>
+</menu>
+<!-- main menu  -->
+<h1 >Games Slot Booking</h1>
+<div class="calender_body">
+    <div class="card-container">
+        <div class="h1-calender-container">
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <img src="https://img.icons8.com/ios-glyphs/30/000000/chevron-left.png" onclick="prevMonth()" alt="Previous Month">
+                    <h2 id="calendar-month"></h2>
+                    <img src="https://img.icons8.com/ios-glyphs/30/000000/chevron-right.png" onclick="nextMonth()" alt="Next Month">
+                </div>
+                <div class="calendar-grid" id="calendar-grid">
+                    <!-- Days will be dynamically generated here -->
+                </div>
+            </div>
+        </div>
+        <div class="time-form-container">
+            <div class="time-slots" id="time-slots" style="display: none;">
+                <h3>Available Time Slots</h3>
+                <div class="calendar" id="calendar">
+                    <!-- Time slots will be displayed here -->
+                </div>
+            </div>
+            <div class="form-container">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <button onclick="submitBooking()" id="submit-button" disabled>Submit Booking</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer Starts -->
+  <footer class="padding_4x" id="footer">
+   
+  <div class="footer_body flex">
+    <section class="flex_content padding_1x">
+      <figure class="logo fixed_flex">
+            <img src="/images/IIMLOgo.png" alt="">
+           
+        </figure>
+        <a href="#">
+            <i class="fa fa-map-marker"></i>
+            Indian Institute of Management Bodh Gaya
+            Uruvela, Prabandh Vihar
+            Bodh Gaya – 824234, Gaya, Bihar, India
+        </a>
+        <a href="emailto:info@schotest.com">
+            <i class="fa fa-envelope-o"></i>
+            Director Office: director_office@iimbg.ac.in
+        </a>
+        <a href="tel:9315514145">
+            <i class="fa fa-headphones"></i>
+          96722XXXXX
+        </a>
+    </section>
+    <section class="flex_content padding_1x">
+      <h3>Quick Links</h3>
+      <a href="#">Admission</a>
+      <a href="#">Prospectus</a>
+      <a href="#">Student registration</a>
+      <a href="#">Staff registration</a>
+    </section>
+    <section class="flex_content padding_1x">
+      <h3>Other Links</h3>
+      <a href="#">About us</a>
+      <a href="#">contact us</a>
+      <a href="#">Raise a ticket</a>
+      <a href="#">Terms & conditions</a>
+    </section>
+    <section class="flex_content padding_1x">
+      <h3>Newsletter</h3>
+      <p>You can trust us. we only send important notifications related to school.</p>
+      <fieldset class="fixed_flex">
+        <input type="email" name="newsletter" placeholder="Your Email Address">
+        <button class="btn btn_2">Subscribe</button>
+      </fieldset>
+    </section>
+  </div>
+  <div class="flex">
+   
+    <section class="flex-content padding_1x">
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-dribbble"></i></a>
+      <a href="#"><i class="fa fa-linkedin"></i></a>
+    </section>
+  </div>
+</footer>
+
+
+     <script src="/Scripts/index.js"></script>
+    <script src="/Scripts/SlotBooking.js"></script>
+</body>
+</html>

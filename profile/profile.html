@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+<!--GOOGLE FONTS-->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;400;500;600;700;800;900&family=Mukta:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<!--PLUGIN-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+<link rel="stylesheet" href="/style/style.css">
+<link rel="stylesheet" href="/style/profile.css">
+</head>
+    
+
+<body>
+
+<!--TOP MENU-->
+<menu class="top_menu flex">
+    <section class="flex_content">
+        <a href="emailto:info@lilliovi.com">
+            <i class="fa fa-envelope-o"></i>
+                pvigyan6@gmail.com
+        </a>
+        <a href="tel:1234567890">
+            <i class="fa fa-headphones"></i>
+            1234567890
+        </a>
+    </section>
+    <section class="flex_content">
+        <a href="#" title="Facebook"><i class="fa fa-facebook"></i></a>
+        <a href="#" title="Instagram"><i class="fa fa-instagram"></i></a>
+        <a href="#" title="Twitter"><i class="fa fa-twitter"></i></a>
+        <a href="#" title="youtube"><i class="fa fa-youtube"></i></a>
+    </section>
+</menu>
+<!-- nav -->
+<nav>
+    <section class="flex_content">
+        <figure class="logo fixed_flex">
+            <a href="ProfileHomePage.html"><img src="/images/IIMLOgo.png" alt="" height="100px" width="100%"></a>
+        </figure>
+    </section>
+    <section class="flex_content nav_content" id="nav_content">
+        <a href="./ProfileHomePage.html" >Home</a>
+        <a href="./profile.html" class="active">Profile</a>
+        <a href="./ProfileBooking.html">Booking</a>
+        <a href="#footer" class="contact_btn">Contact us</a>
+        <a href="#about">About us</a>
+    </section>
+    <section class="flex_content user">
+        <p>Welcome,
+        <span class="navEmail"></span> </p><!-- Placeholder for the user's name -->
+    </section>
+    <section class="flex_content">
+        <a href="javascript:void(0)" class="ham"><i class="fa fa-bars"></i></a>
+    </section>
+</nav>
+
+<menu id="menu" class="side_menu">
+    <a href="javascript:void(0)" class="close"><i class="fa fa-times"></i></a>
+    <strong class="fixed_flex logo">
+        <img src="/images/IIMLOgo.png" alt="Summit" loading="lazy" />
+    </strong>
+    <br>
+
+    <!-- Profile Section -->
+    <div class="profile-section">
+        <input type="file" id="profileImageInput" style="display: none;" onchange="updateProfileImage()" />
+        <label for="profileImageInput">
+            <img src="/images/avtar.jpg" alt="Profile Image" id="profileImage" class="profile-image" />
+        </label>
+        <p id="userNameDisplay">Vigyan</p>  <!-- Replace with dynamic user name -->
+    </div>
+
+    <!-- Booked Slots History Button -->
+    <ul>
+        <li><a href="#" onclick="openModal(); viewHistory();">View Booked Slots History</a></li>
+    </ul>
+
+    <!-- Logout Button -->
+    <button class="logout-button" onclick="logout()">Logout</button>
+</menu>
+
+
+<!--HEADER-->
+<header class="flex">
+    <article>
+        <h1 class="title big">Welcome to <br><em>IIM</em> Bodh Gaya <br><em>Sports</em> Community</h1>
+        <p>Your profile: Keep your details up-to-date to access all the benefits of being a part of the IIM Bodh Gaya Sports community.</p>
+        <a href="./BookingSlot.html" class="btn btn_3">Book Your Slot</a>
+    </article>
+
+    <!-- Profile Section -->
+    <section class="flex">
+        <aside class="padding_1x">
+            <h2 class="sub_title">Profile Overview</h2>
+            <p>View and update your personal information, including contact details, preferences, and more.</p>
+            <a href="javascript:void(0)" class="scroll-to-profile"><i class="fa fa-angle-right"></i></a>
+        </aside>
+        
+        <aside class="padding_1x">
+            <h2 class="sub_title">Booking History</h2>
+            <p>Check your booked slots and view your activity in the sports community.</p>
+            <a href="javascript:void(0)" onclick="openModal(); viewHistory();"><i class="fa fa-angle-right"></i> </a>
+        </aside>
+
+        <aside class="padding_1x">
+            <h2 class="sub_title">Settings</h2>
+            <p>Manage your account settings, change your password, and customize notifications.</p>
+            <a href="./Settings.html"><i class="fa fa-angle-right"></i></a>
+        </aside>
+    </section>
+</header>
+
+<!-- Modal -->
+<div id="historyModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Booked Slots History</h2>
+        <div id="historyContent">
+            <!-- Dynamically inserted history data will go here -->
+            <p>No history available</p>
+        </div>
+    </div>
+</div>
+
+<div class="profile-form-container" id="profileFormSection">
+    <form id="profileForm">
+        <h2>Profile Details</h2>
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" value="Vigyan" disabled />
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" value="userEmail"  class="navEmail" disabled />
+        </div>
+        <div>
+            <label for="studentId">Student Registration ID:</label>
+            <input type="text" id="studentId" placeholder="Enter your ID" />
+        </div>
+        <div>
+            <label for="rollNo">Roll Number:</label>
+            <input type="text" id="rollNo" placeholder="Enter Roll Number" />
+        </div>
+        <div>
+            <label for="branch">Branch:</label>
+            <input type="text" id="branch" placeholder="Enter Branch" />
+        </div>
+        <div>
+            <label for="course">Course:</label>
+            <input type="text" id="course" placeholder="Enter Course" />
+        </div>
+        <div>
+            <label for="mobile">Mobile Number:</label>
+            <input type="text" id="mobile" placeholder="Enter Mobile Number" />
+        </div>
+        <div>
+            <label for="gender">Gender:</label>
+            <select id="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div>
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" />
+        </div>
+
+        <div class="buttons">
+            <button type="submit" id="saveButton">Save</button>
+            <button type="button" id="editButton" onclick="editProfile()" disabled>Edit</button>
+        </div>
+    </form>
+    <div id="profileCard" class="profile-card" style="display: none;">
+        <h2>Profile Details 2 test</h2>
+        <p><strong>Name:</strong> <span id="cardName">Vigyan</span></p>
+        <p><strong>Email:</strong> <span id="cardEmail" class="navEmail">N/A</span></p>
+        <p><strong>Student ID:</strong> <span id="cardStudentId"></span></p>
+        <p><strong>Roll Number:</strong> <span id="cardRollNo"></span></p>
+        <p><strong>Branch:</strong> <span id="cardBranch"></span></p>
+        <p><strong>Course:</strong> <span id="cardCourse"></span></p>
+        <p><strong>Mobile:</strong> <span id="cardMobile"></span></p>
+        <p><strong>Gender:</strong> <span id="cardGender"></span></p>
+        <p><strong>Date of Birth:</strong> <span id="cardDob"></span></p>
+        <button onclick="editCard()">Edit</button>
+    </div>
+</div>
+
+
+
+
+
+<!--FOOTER-->
+<footer class="padding_4x" id="footer">
+    <div class="top_footer flex">
+        <section class="flex_content">
+            <figure>
+                <img src="/images/Director.jpg" alt="" loading="lazy" />
+            </figure>
+        </section>
+        <section class="flex_content padding_2x">
+            <h2 class="title medium">Director Message</h2>
+            <p>"At a time when India is poised to become a major world economy, IIM Bodh Gaya is shaping up as a formidable contributor of managerial talents in that direction.</p>
+        </section>
+    </div>
+  <div class="footer_body flex">
+    <section class="flex_content padding_1x">
+      <figure class="logo fixed_flex">
+            <img src="/images/IIMLOgo.png" alt="">
+           
+        </figure>
+        <a href="#">
+            <i class="fa fa-map-marker"></i>
+            Indian Institute of Management Bodh Gaya
+            Uruvela, Prabandh Vihar
+            Bodh Gaya – 824234, Gaya, Bihar, India
+        </a>
+        <a href="emailto:info@schotest.com">
+            <i class="fa fa-envelope-o"></i>
+            Director Office: director_office@iimbg.ac.in
+        </a>
+        <a href="tel:9315514145">
+            <i class="fa fa-headphones"></i>
+          96722XXXXX
+        </a>
+    </section>
+    <section class="flex_content padding_1x">
+      <h3>Quick Links</h3>
+      <a href="#">Admission</a>
+      <a href="#">Prospectus</a>
+      <a href="#">Student registration</a>
+      <a href="#">Staff registration</a>
+    </section>
+    <section class="flex_content padding_1x">
+      <h3>Other Links</h3>
+      <a href="#">About us</a>
+      <a href="#">contact us</a>
+      <a href="#">Raise a ticket</a>
+      <a href="#">Terms & conditions</a>
+    </section>
+    <section class="flex_content padding_1x">
+      <h3>Newsletter</h3>
+      <p>You can trust us. we only send important notifications related to school.</p>
+      <fieldset class="fixed_flex">
+        <input type="email" name="newsletter" placeholder="Your Email Address">
+        <button class="btn btn_2">Subscribe</button>
+      </fieldset>
+    </section>
+  </div>
+  <div class="flex">
+   
+    <section class="flex-content padding_1x">
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-dribbble"></i></a>
+      <a href="#"><i class="fa fa-linkedin"></i></a>
+    </section>
+  </div>
+</footer>
+
+
+<!--ADDITIONAL-->
+<div class="overlay"></div>
+<div class="cursor"></div>
+<script src="/Scripts/index.js"></script>
+<script src="/Scripts/profile.js"></script>
+</body>
+
+</html>
